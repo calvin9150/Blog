@@ -12,13 +12,6 @@ document.addEventListener("scroll", () => {
   }
 });
 
-const homeBtn = document.querySelector("#homeBtn");
-const aboutBtn = document.querySelector("#aboutBtn");
-const skillsBtn = document.querySelector("#skillsBtn");
-const myworkBtn = document.querySelector("#myworkBtn");
-const introduceBtn = document.querySelector("#introduceBtn");
-const contactBtn = document.querySelector("#contactBtn");
-
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
   let target = event.target;
@@ -27,6 +20,18 @@ navbarMenu.addEventListener("click", (event) => {
     return;
   } else {
     const scrollTo = document.querySelector(link);
-    scrollTo.scrollIntoView();
+    scrollTo.scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+const contactBtn = document.querySelector(".home__button");
+contactBtn.addEventListener("click", (event) => {
+  const target = event.target;
+  const link = target.dataset.link;
+  if (link == null) {
+    return;
+  } else {
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView({ behavior: "smooth" });
   }
 });
