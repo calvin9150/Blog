@@ -425,6 +425,11 @@ button {
   font-size: var(--font-large);
 }
 
+.contact__links i:hover {
+  transform: rotate(15deg) scale(1.1);
+  transition: all 50ms;
+}
+
 /* responsive */
 @media screen and (max-width: 720px) {
   .navbar__toggle-btn {
@@ -441,5 +446,13 @@ button {
     text-align: center;
     width: 100%;
     display: none;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .about__majors {
+    flex-direction: column;
   }
 }
