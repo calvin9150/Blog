@@ -19,26 +19,14 @@ const myworkBtn = document.querySelector("#myworkBtn");
 const introduceBtn = document.querySelector("#introduceBtn");
 const contactBtn = document.querySelector("#contactBtn");
 
-homeBtn.addEventListener("click", () => {
-  window.scrollTo(0, 0);
-});
-
-aboutBtn.addEventListener("click", () => {
-  window.scrollTo(0, 600);
-});
-
-skillsBtn.addEventListener("click", () => {
-  window.scrollTo(0, 1325);
-});
-
-myworkBtn.addEventListener("click", () => {
-  window.scrollTo(0, 1950);
-});
-
-introduceBtn.addEventListener("click", () => {
-  window.scrollTo(0, 2540);
-});
-
-contactBtn.addEventListener("click", () => {
-  window.scrollTo(0, 2897);
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
+  let target = event.target;
+  let link = target.dataset.link;
+  if (link == null) {
+    return;
+  } else {
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView();
+  }
 });
