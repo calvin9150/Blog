@@ -86,12 +86,20 @@ button {
 
 /* navbar */
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-black);
+  background-color: transparent;
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  transition: all 200ms ease-in-out;
+}
+
+#navbar.navbar--dark {
+  background-color: var(--color-black);
+  padding: 8px;
 }
 
 .navbar__logo {
@@ -135,6 +143,7 @@ button {
 #home {
   background: url("imgs/home-background.png") center/cover no-repeat;
   padding: 40px;
+  padding-top: 150px;
   text-align: center;
 }
 
