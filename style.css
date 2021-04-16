@@ -118,6 +118,19 @@ button {
   background-color: var(--color-light-grey);
 }
 
+.major {
+  margin: 38px;
+}
+
+.navbar__toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: none;
+}
+
 /* home */
 #home {
   background: url("imgs/home-background.png") center/cover no-repeat;
@@ -161,7 +174,7 @@ button {
 /* about */
 .about__majors {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 80px 0;
 }
 
@@ -372,6 +385,61 @@ button {
   transform: translateY(0px);
 }
 
-#testimonials {
+/* testimonials */
+#introduces {
   background-color: var(--color-dark-white);
+}
+
+.introduce {
+  display: flex;
+  margin: 32px 0;
+}
+
+.introduce__avatar {
+  width: 150px;
+  height: 150px;
+  margin: 12px;
+  border-radius: 50%;
+}
+
+.introduce__speech-bubble {
+  padding: 18px;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 10%;
+}
+
+/* .className:nth-child(odd|even) {} 으로 홀짝에 따라 스타일 지정 가능*/
+
+/* contact */
+
+.contact__rights {
+  margin: 50px;
+}
+
+.contact__title {
+  margin: 32px 0;
+}
+
+#github {
+  color: var(--color-black);
+  font-size: var(--font-large);
+}
+
+/* responsive */
+@media screen and (max-width: 720px) {
+  .navbar__toggle-btn {
+    display: block;
+  }
+
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
 }
