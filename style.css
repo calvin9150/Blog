@@ -95,6 +95,7 @@ button {
   color: var(--color-white);
   padding: 16px;
   transition: all 200ms ease-in-out;
+  z-index: 1;
 }
 
 #navbar.navbar--dark {
@@ -109,6 +110,7 @@ button {
 
 .navbar__menu {
   display: flex;
+  margin-right: 10px;
 }
 
 .navbar__menu__item {
@@ -132,7 +134,7 @@ button {
 
 .navbar__toggle-btn {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 32px;
   font-size: 24px;
   color: var(--color-white);
