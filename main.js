@@ -35,3 +35,13 @@ contactBtn.addEventListener("click", (event) => {
     scrollTo.scrollIntoView({ behavior: "smooth" });
   }
 });
+
+const home = document.querySelector("#home");
+document.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    home.classList.add("home--blur");
+  } else {
+    home.classList.remove("home--blur");
+  }
+  console.log("yes");
+});
