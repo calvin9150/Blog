@@ -36,12 +36,19 @@ contactBtn.addEventListener("click", (event) => {
   }
 });
 
+// const home = document.querySelector("#home");
+// document.addEventListener("scroll", () => {
+//   if (window.scrollY > 300) {
+//     home.classList.add("home--blur");
+//   } else {
+//     home.classList.remove("home--blur");
+//   }
+//   console.log("yes");
+// });
+
 const home = document.querySelector("#home");
+const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    home.classList.add("home--blur");
-  } else {
-    home.classList.remove("home--blur");
-  }
-  console.log("yes");
+  // console.log(1 - (window.scrollY / homeHeight));
+  home.style.opacity = 0.9 - window.scrollY / homeHeight;
 });
