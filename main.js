@@ -47,8 +47,22 @@ contactBtn.addEventListener("click", (event) => {
 // });
 
 const home = document.querySelector("#home");
-const homeHeight = home.getBoundingClientRect().height;
+const homeHeight = home.getBoundingClientRect().top;
 document.addEventListener("scroll", () => {
   // console.log(1 - (window.scrollY / homeHeight));
   home.style.opacity = 0.9 - window.scrollY / homeHeight;
+});
+
+const arrow = document.querySelector(".arrow");
+document.addEventListener("scroll", () => {
+  console.log("arrow:" + window.scrollY);
+  if (window.scrollY > 200) {
+    arrow.style.opacity = 1;
+  } else {
+    arrow.style.opacity = 0;
+  }
+});
+
+arrow.addEventListener("click", () => {
+  home.scrollIntoView();
 });
