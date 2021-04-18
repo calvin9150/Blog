@@ -4,7 +4,10 @@ const navbar = document.querySelector("#navbar");
 const navbarHeight = navbar.getBoundingClientRect().height;
 
 document.addEventListener("scroll", () => {
-  if (window.scrollY > navbarHeight) {
+  if (navbarList.classList.contains("open")) {
+    navbarList.classList.remove("open");
+    return;
+  } else if (window.scrollY > 0) {
     navbar.classList.add("navbar--dark");
     console.log(window.scrollY);
   } else {
@@ -86,4 +89,12 @@ workBtnContainer.addEventListener("click", (e) => {
       project.style.display = "none";
     }
   });
+});
+
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+const navbarList = document.querySelector(".navbar__menu--list");
+navbarToggleBtn.addEventListener("click", () => {
+  console.log("clicked");
+  navbar.classList.add("navbar--dark");
+  navbarList.classList.toggle("open");
 });

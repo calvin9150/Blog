@@ -108,7 +108,8 @@ button {
   font-weight: var(--weight-semi-bold);
 }
 
-.navbar__menu {
+.navbar__menu,
+.navbar__menu--list {
   display: flex;
   margin-right: 10px;
 }
@@ -470,11 +471,16 @@ button {
     align-items: flex-start;
   }
 
-  .navbar__menu {
+  .navbar__menu,
+  .navbar__menu--list {
     flex-direction: column;
     text-align: center;
     width: 100%;
     display: none;
+  }
+  .navbar__menu,
+  .navbar__menu--list.open {
+    display: block;
   }
 
   .skillset {
