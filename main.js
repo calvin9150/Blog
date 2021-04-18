@@ -58,8 +58,10 @@ document.addEventListener("scroll", () => {
   console.log("arrow:" + window.scrollY);
   if (window.scrollY > 200) {
     arrow.style.opacity = 1;
+    arrow.style.pointerEvents = "auto";
   } else {
     arrow.style.opacity = 0;
+    arrow.style.pointerEvents = "none";
   }
 });
 

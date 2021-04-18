@@ -456,6 +456,7 @@ button {
   bottom: 50px;
   opacity: 0;
   transition: all 300ms ease-in;
+  pointer-events: none;
 }
 
 /* responsive */
