@@ -68,3 +68,26 @@ document.addEventListener("scroll", () => {
 arrow.addEventListener("click", () => {
   home.scrollIntoView();
 });
+
+const allBtn = document.querySelector("#all");
+const frontBtn = document.querySelector("#front");
+const backBtn = document.querySelector("#back");
+const project1 = document.querySelector("#project1");
+const project2 = document.querySelector("#project2");
+const project3 = document.querySelector("#project3");
+
+allBtn.addEventListener("click", () => {
+  project1.style.display = "block";
+  project2.style.display = "block";
+  project3.style.display = "block";
+});
+frontBtn.addEventListener("click", () => {
+  project1.style.display = "block";
+  project2.style.display = "block";
+  project3.style.display = "none";
+});
+backBtn.addEventListener("click", () => {
+  project1.style.display = "none";
+  project2.style.display = "none";
+  project3.style.display = "block";
+});
