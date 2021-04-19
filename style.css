@@ -122,7 +122,7 @@ button {
 }
 
 .navbar__menu__item.active {
-  border: 1px soild var(--color-white);
+  border: 1px solid var(--color-white);
 }
 
 .navbar__menu__item:hover {

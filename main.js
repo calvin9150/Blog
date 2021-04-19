@@ -9,7 +9,6 @@ document.addEventListener("scroll", () => {
     return;
   } else if (window.scrollY > 0) {
     navbar.classList.add("navbar--dark");
-    console.log(window.scrollY);
   } else {
     navbar.classList.remove("navbar--dark");
   }
@@ -58,7 +57,6 @@ document.addEventListener("scroll", () => {
 
 const arrow = document.querySelector(".arrow");
 document.addEventListener("scroll", () => {
-  console.log("arrow:" + window.scrollY);
   if (window.scrollY > 200) {
     arrow.style.opacity = 1;
     arrow.style.pointerEvents = "auto";
@@ -81,6 +79,12 @@ workBtnContainer.addEventListener("click", (e) => {
     return;
   }
 
+  const active = document.querySelector(".category__btn.selected");
+  if (active != null) {
+    active.classList.remove("selected");
+  }
+  e.target.classList.add("selected");
+
   projects.forEach((project) => {
     console.log(project.dataset.type);
     if (filter === "*" || filter === project.dataset.type) {
@@ -94,7 +98,50 @@ workBtnContainer.addEventListener("click", (e) => {
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
 const navbarList = document.querySelector(".navbar__menu--list");
 navbarToggleBtn.addEventListener("click", () => {
-  console.log("clicked");
   navbar.classList.add("navbar--dark");
   navbarList.classList.toggle("open");
 });
+
+const sectionIds = [
+  "#home",
+  "#about",
+  "#skills",
+  "#work",
+  "#introduces",
+  "#contact",
+];
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove("active");
+  selectedNavItem = selected;
+  selectedNavItem.classList.add("active");
+}
+
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      // 스크롤링이 아래로 되어서 페이지가 올라옴
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section));
