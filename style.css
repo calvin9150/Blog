@@ -423,7 +423,10 @@ button {
 .introduce__speech-bubble {
   padding: 18px;
   background-color: rgba(255, 255, 255, 0.514);
-  border-radius: 10%;
+}
+
+.introduce__text {
+  text-align: left;
 }
 
 /* .className:nth-child(odd|even) {} 으로 홀짝에 따라 스타일 지정 가능*/
